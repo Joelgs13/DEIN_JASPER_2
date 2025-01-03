@@ -67,9 +67,10 @@ public class InterfazController {
             parameters.put("IMAGE_PATH", getClass().getResource("/img/").toString());
             generarReporte("/JasperReport/InformePConCalculos.jasper", parameters);
         } else if (rbPSubinformes.isSelected()) {
+            //este informe no me funciona
             Map<String, Object> parameters = new HashMap<>();
-            parameters.put("Resource_PATH", getClass().getResource("/img/").toString());
-            generarReporte("/JasperReport/Agenda_InformePersonas_Subinforme.jasper", parameters);
+            parameters.put("Resource_PATH", getClass().getResource("/jrxml/").toString());
+            generarReporte("/JasperReport/Subinformes.jasper", parameters);
         }
     }
 
