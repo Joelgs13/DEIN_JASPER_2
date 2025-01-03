@@ -8,6 +8,7 @@ import java.util.Map;
 import BBDD.ConexionBBDD;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleGroup;
@@ -55,7 +56,17 @@ public class InterfazController {
 
         } catch (SQLException | JRException e) {
             e.printStackTrace();
+            mostrarError("Error en la base de datos", "No se pudo conectar a la base de datos o generar el informe.");
         }
+    }
+
+    private void mostrarError(String titulo, String mensaje) {
+        // Crear una ventana emergente de tipo "error"
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle(titulo);
+        alert.setHeaderText(null); // No queremos un encabezado
+        alert.setContentText(mensaje); // El mensaje que queremos mostrar
+        alert.showAndWait(); // Mostrar el mensaje y esperar a que el usuario lo cierre
     }
 
     @FXML
