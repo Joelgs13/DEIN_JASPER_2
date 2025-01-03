@@ -19,6 +19,10 @@ import net.sf.jasperreports.engine.JasperReport;
 import net.sf.jasperreports.engine.util.JRLoader;
 import net.sf.jasperreports.view.JasperViewer;
 
+/**
+ * Controlador para la interfaz de usuario de la aplicación de informes en JasperReports.
+ * Permite generar diferentes tipos de informes según la selección del usuario en los radio buttons.
+ */
 public class InterfazController {
 
     @FXML
@@ -39,6 +43,12 @@ public class InterfazController {
     @FXML
     private RadioButton rbPSubinformes;
 
+    /**
+     * Metodo que genera el reporte utilizando JasperReports.
+     *
+     * @param reportePath Ruta del archivo JasperReport.
+     * @param parameters Parámetros necesarios para la generación del informe.
+     */
     private void generarReporte(String reportePath, Map<String, Object> parameters) {
         try {
             ConexionBBDD db = new ConexionBBDD();
@@ -60,6 +70,12 @@ public class InterfazController {
         }
     }
 
+    /**
+     * Muestra un cuadro de diálogo con un mensaje de error.
+     *
+     * @param titulo El título del cuadro de diálogo.
+     * @param mensaje El mensaje a mostrar en el cuadro de diálogo.
+     */
     private void mostrarError(String titulo, String mensaje) {
         // Crear una ventana emergente de tipo "error"
         Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -69,6 +85,12 @@ public class InterfazController {
         alert.showAndWait(); // Mostrar el mensaje y esperar a que el usuario lo cierre
     }
 
+    /**
+     * Metodo que se ejecuta cuando el usuario hace clic en el botón "Aceptar".
+     * Genera el informe correspondiente según el radio button seleccionado.
+     *
+     * @param event El evento generado por la acción del usuario (hacer clic en el botón).
+     */
     @FXML
     void Aceptar(ActionEvent event) {
         if (rbPersonas.isSelected()) {
@@ -85,6 +107,12 @@ public class InterfazController {
         }
     }
 
+    /**
+     * Metodo que se ejecuta cuando el usuario hace clic en el botón "Cancelar".
+     * Cierra la aplicación.
+     *
+     * @param event El evento generado por la acción del usuario (hacer clic en el botón).
+     */
     @FXML
     void Cancelar(ActionEvent event) {
         System.exit(0); // O usa una referencia a la ventana principal si deseas cerrarla específicamente
