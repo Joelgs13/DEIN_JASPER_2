@@ -64,11 +64,11 @@ public class InterfazController {
             generarReporte("/JasperReport/InformePersonas.jasper", null);
         } else if (rbPCalculos.isSelected()) {
             Map<String, Object> parameters = new HashMap<>();
-            parameters.put("IMAGE_PATH", getClass().getResource("/imagenes/").toString());
-            generarReporte("/JasperReport/Agenda_InformePersonas_Calculos.jasper", parameters);
+            parameters.put("IMAGE_PATH", getClass().getResource("/img/").toString());
+            generarReporte("/JasperReport/InformePConCalculos.jasper", parameters);
         } else if (rbPSubinformes.isSelected()) {
             Map<String, Object> parameters = new HashMap<>();
-            parameters.put("Resource_PATH", getClass().getResource("/jasper/").toString());
+            parameters.put("Resource_PATH", getClass().getResource("/img/").toString());
             generarReporte("/JasperReport/Agenda_InformePersonas_Subinforme.jasper", parameters);
         }
     }
